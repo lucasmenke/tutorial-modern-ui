@@ -7,9 +7,12 @@ import { close, logo, menu } from "../../../public/assets";
 import { navLinks } from "../../../constants/constants";
 
 export default function NavBar() {
+  const [toggle, setToggle] = useState(false);
+
   return (
     <nav className="w-full flex py-6 justify-between items-center navbar">
-      <Image src={logo} alt="hoobank" width={124} height={32} />
+      <Image src={logo} alt="HooBank" width={124} height={32} />
+      {/* Desktop devices */}
       <ul className="list-nobe sm:flex hidden justify-end items-center flex-1">
         {navLinks.map((nav, index) => (
           <li
@@ -22,6 +25,20 @@ export default function NavBar() {
           </li>
         ))}
       </ul>
+      {/* Mobile devices */}
+      <div className="sm:hidden flex flex-1 justify-end items-center">
+        <Image
+          src={toggle ? close : menu}
+          alt="Menu"
+          width={28}
+          height={28}
+          className="object-contain"
+          onClick={() => setToggle((prev) => !prev)}
+        />
+        <div className={`${toggle ? "flex" : "hidden"} p-6 absolute bg-black-gradient top-20 right-0 mx-4 my-2 min-w-[140px] rounded-xl sidebar`}>
+
+        </div>
+      </div>
     </nav>
   );
 }
