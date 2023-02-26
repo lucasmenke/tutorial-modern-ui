@@ -1,4 +1,4 @@
-## Data Fetching in Next.js 13
+## Modern UI in Next.js 13
 
 In this project I build a modern website which focuses on a clean design and responsiveness.
 
